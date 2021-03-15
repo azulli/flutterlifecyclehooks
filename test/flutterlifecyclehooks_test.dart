@@ -36,10 +36,10 @@ void main() {
 }
 
 class App extends StatefulWidget {
-  final MockLifecycle mockLifecycle;
+  final MockLifecycle? mockLifecycle;
 
   const App({
-    Key key,
+    Key? key,
     this.mockLifecycle,
   }) : super(key: key);
 

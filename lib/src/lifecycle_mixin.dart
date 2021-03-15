@@ -19,14 +19,14 @@ mixin LifecycleMixin<T extends StatefulWidget> on State<T>
     }
   }
 
-  AppLifecycleState get currentLifecycleState =>
-      WidgetsBinding.instance.lifecycleState;
+  AppLifecycleState? get currentLifecycleState =>
+      WidgetsBinding.instance!.lifecycleState;
 
   @override
   void didChangeAccessibilityFeatures() {}
 
   @override
-  void didChangeLocales(List<Locale> locale) {}
+  void didChangeLocales(List<Locale>? locale) {}
 
   @override
   void didChangeMetrics() {}
@@ -52,21 +52,21 @@ mixin LifecycleMixin<T extends StatefulWidget> on State<T>
 
   @override
   Future<bool> didPushRouteInformation(RouteInformation routeInformation) {
-    return didPushRoute(routeInformation.location);
+    return didPushRoute(routeInformation.location!);
   }
 
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addObserver(this);
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance!.addObserver(this);
+    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
       afterFirstRender();
     });
   }
 
   @override
   void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
+    WidgetsBinding.instance!.removeObserver(this);
     super.dispose();
   }
 
